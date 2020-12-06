@@ -29,16 +29,19 @@ function App() {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [NextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1 );
 
-  useEffect(()=>{
- 
-    setNextSongIndex(()=>{
+  const setNextSongIndex = useCallback(
+    () => {
       if (currentSongIndex+1>songs.length-1){
         return 0;
       }else{
         return currentSongIndex +1;
       }
-    });
+    },
+    [],
+  )
 
+  useEffect(()=>{
+    setNextSongIndex()
   },[currentSongIndex]);
 
   return (

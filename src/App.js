@@ -29,7 +29,7 @@ function App() {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [NextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1 );
 
-  const setNextSongIndex = useCallback(
+   setNextSongIndex = useCallback(
     () => {
       if (currentSongIndex+1>songs.length-1){
         return 0;

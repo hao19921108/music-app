@@ -1,6 +1,6 @@
 
 
-import {useState, useEffect, useCallback } from 'react';
+import {useState, useEffect} from 'react';
 import Player from './components/Player';
 
 function App() {
@@ -29,20 +29,17 @@ function App() {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [NextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1 );
 
-   setNextSongIndex = useCallback(
-    () => {
+  useEffect(()=>{
+ 
+    setNextSongIndex(()=>{
       if (currentSongIndex+1>songs.length-1){
         return 0;
       }else{
         return currentSongIndex +1;
       }
-    },
-    [],
-  )
+    });
 
-  useEffect(()=>{
-    setNextSongIndex()
-  },[currentSongIndex]);
+  },[currentSongIndex,songs.length]);
 
   return (
     <div className="App">
@@ -51,6 +48,7 @@ function App() {
       setCurrentSongIndex={setCurrentSongIndex}
       NextSongIndex={NextSongIndex}
       songs={songs}
+
       />
     </div>
   );

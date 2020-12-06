@@ -1,6 +1,6 @@
 
 
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback } from 'react';
 import Player from './components/Player';
 
 function App() {
